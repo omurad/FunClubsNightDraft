@@ -1,6 +1,6 @@
 import random
 
-print("A file named players.txt must exist in the same directory as this script.\n")
+print "A file named players.txt must exist in the same directory as this script.\n"
 
 # How many teams
 teamCount = input("Number of teams: ")
