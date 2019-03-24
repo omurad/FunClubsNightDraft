@@ -25,7 +25,7 @@ for i in range (0, len(players)):
 	
 	# Append player to team file
 	with open("team"+str(team)+".txt", "a") as file:
-		file.write(players[draftNum]+"\n")
+		file.write("@"+players[draftNum]+"\n")
 		
 	# Remove selected player from draft list
 	del players[draftNum]
