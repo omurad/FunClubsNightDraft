@@ -1,37 +1,20 @@
-import random
+import Tkinter as tk
 
-print "A file named players.txt must exist in the same directory as this script.\n"
+players = []
 
-# How many teams
-teamCount = input("Number of teams: ")
+def draft ():
+	for line in text.get('1.0', 'end-1c').splitlines():
+		if line:
+			players.append(line)
 
-# Put all players into array
-with open('players.txt') as file:
-    players = file.readlines()
+main = tk.Tk()
 
-# Strip newlines
-for i, player in enumerate(players):
-    players[i] = player.strip()
+text = tk.Text(main)
+draftBtn = tk.Button(main, text="Draft!", width = 75, command=draft)
 
-# Create file for each team
-for i in range(1, teamCount+1):
-	open("team"+str(i)+".txt","w+")
-	
-# Loop over players
-team = 1
-for i in range (0, len(players)):
-	# Pick random player from current draft
-	draftNum = random.randrange(0, len(players))
-	
-	# Append player to team file
-	with open("team"+str(team)+".txt", "a") as file:
-		file.write("@"+players[draftNum]+"\n")
-		
-	# Remove selected player from draft list
-	del players[draftNum]
-	
-	# Make sure team variable doesn't go beyond the specified team count
-	if team == teamCount:
-		team = 1
-	else:
-		team = team + 1
+text.pack()
+draftBtn.pack()
+
+text.focus_set()
+
+main.mainloop()
