@@ -23,7 +23,6 @@ def draft ():
 	ppt = math.floor(playerCount / int(teams))
 	remainder = playerCount % int(teams)
 	remainderAssigned = 0
-	print "ppt="+str(ppt)
 	
 	col = 0
 	# Display Draft
@@ -32,7 +31,6 @@ def draft ():
 		# Create a random team of ppt players
 		for z in range(int(ppt)):
 			index = randint(0, len(players)-1)
-			print len(players)
 			currentTeam += players[index]+"\n"
 			del players[index]
 	
